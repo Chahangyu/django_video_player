@@ -1,9 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('video.urls')),  # 'video.urls'가 올바르게 포함되었는지 확인
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', include('video.urls')),  # 'video' 앱의 URL을 포함
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

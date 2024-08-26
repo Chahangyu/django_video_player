@@ -1,34 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video List</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/global_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'video/css/styles.css' %}">
-    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-</head>
-<body>
-    <header class="navbar">
-        <!-- 네비게이션 바 내용 -->
-    </header>
+{% extends 'base.html' %}
 
-    <div class="container">
-        <h1>Videos</h1>
-        <a href="{% url 'video_upload' %}">Upload New Video</a>
-        <ul>
-            {% for video in videos %}
-                <li>
-                    <a href="{% url 'video_detail' video.pk %}">{{ video.title }}</a>
-                    <a href="{% url 'video_delete' video.pk %}" style="color:red;">[Delete]</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+{% block title %}Video List{% endblock %}
 
-    <footer class="footer">
-        <!-- 푸터 내용 -->
-    </footer>
-</body>
-</html>
+{% block content %}
+    <h1>Videos</h1>
+    <a href="{% url 'video_upload' %}">Upload New Video</a>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <a href="{% url 'video_detail' video.pk %}">{{ video.title }}</a>
+                <a href="{% url 'video_delete' video.pk %}" style="color:red;">[Delete]</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

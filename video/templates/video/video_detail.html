@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ video.title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block content %}
     <h1>{{ video.title }}</h1>
-    <video width="600" controls>
-        <source src="{{ video.video_file.url }}" type="video/mp4">
+    <p>Video URL: {{ video.file.url }}</p>
+    <video controls width="600">
+        <source src="{{ video.file.url }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-</body>
-</html>
+{% endblock %}
