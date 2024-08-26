@@ -1,0 +1,16 @@
+/* video/static/video/css/styles.css */
+
+.video-player {
+    background-color: #000000; /* 검은색 배경 */
+    border: 2px solid #444444; /* 다크 그레이 테두리 */
+}
+
+.video-title {
+    color: #FFFFFF; /* 흰색 텍스트 */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.video-description {
+    color: #CCCCCC; /* 밝은 회색 텍스트 */
+}
